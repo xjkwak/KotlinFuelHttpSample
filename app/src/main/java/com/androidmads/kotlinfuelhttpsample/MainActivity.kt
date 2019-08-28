@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initViewsAndWidgets()
-        FuelManager.instance.basePath = "http://demosmushtaq.16mb.com";
+        FuelManager.instance.basePath = "http://dev-evadas.pantheonsite.io/";
     }
 
     private fun initViewsAndWidgets() {
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
     fun httpGetJson(view: View) {
         try {
             progress!!.show()
-            Fuel.get("api/get_sample.php").responseJson { request, response, result ->
+            Fuel.get("node/1?_format=json").responseJson { request, response, result ->
                 tvGetResponse!!.text = result.get().content
             }
         } catch (e: Exception) {
